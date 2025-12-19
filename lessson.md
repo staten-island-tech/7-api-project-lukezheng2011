@@ -9,7 +9,7 @@
 
 ---
 
-## 🕹️ Step 1: What’s happening in our code?
+## 🕹️ Step 1: What’s happening in our code?a
 
 ```python
 import requests
