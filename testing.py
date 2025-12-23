@@ -1,9 +1,7 @@
 import requests
 
-
-
-def getMorseCode(morse):
-    response = requests.get(f"https://api.funtranslations.com/translate/{morse.lower()}")
+def getPoke(poke):
+    response = requests.get(f"https://pokeapi.co/api/v2/pokemon/{poke.lower()}")
     if response.status_code != 200:
         print("Error fetching data!")
         return None
@@ -16,7 +14,5 @@ def getMorseCode(morse):
         "types": [t["type"]["name"] for t in data["types"]]
     }
 
-pokemon = getMorseCode("Bulbasaur")
+pokemon = getPoke("Bulbasaur")
 print(pokemon)
-
-
