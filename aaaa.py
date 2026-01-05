@@ -1,22 +1,17 @@
 import requests
 
-
-
-def getMorseCode(morse):
-    response = requests.get(f"https://api.funtranslations.com/translate/{morse.lower()}")
-    if response.status_code != 200:
-        print("Error fetching data!")
-        return None
-    
-    data = response.json()
+def get_book():
+    response = requests.get('https://potterapi-fedeperin.vercel.app/en/books')
+    books = response.json()
+    # return books
     return {
-        "name": data["name"],
-        "height": data["height"],
-        "weight": data["weight"],
-        "types": [t["type"]["name"] for t in data["types"]]
+        "title": books["title"],
+        "release": books["releaseDate"],
+        "pages": books["pages"]
     }
 
-pokemon = getMorseCode("Bulbasaur")
-print(pokemon)
+
+
+
 
 
