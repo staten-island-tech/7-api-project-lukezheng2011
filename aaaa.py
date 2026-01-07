@@ -9,6 +9,8 @@ def get_book():
         "release": books["releaseDate"],
         "pages": books["pages"]
     }
+get_book()
+print(books["title"])
 
 
 
