@@ -1,3 +1,5 @@
+
+import tkinter as tk
 import requests
 
 def get_book():
@@ -9,6 +11,10 @@ def get_book():
         "release": books["releaseDate"],
         "pages": books["pages"]
     }
+
+def get_books():
+    response = requests.get("https://potterapi-fedeperin.vercel.app/en/books")
+    return response.json()
 
 
 books = get_book()
