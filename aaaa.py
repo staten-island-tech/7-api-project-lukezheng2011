@@ -1,6 +1,9 @@
 import requests
 import tkinter as tk
 
+print("testing if python works")
+print("Titles must be entered completely, like:")
+print("Harry Potter and the Sorcerer's Stone")
 def get_books():
     response = requests.get("https://potterapi-fedeperin.vercel.app/en/books")
     if response.status_code != 200:
@@ -12,12 +15,12 @@ def book_description(title):
     for book in books:
         if title.lower() == book["title"].lower():
             return book.get("description", "No description available")
-    print("No book descroption available")
+    return("Book title doesn't work")
 
 def search_book():
     title = entry.get().strip()
     if not title:
-        result_label.config(text="Please enter a book title")
+        result_label.config(text="Enter a book title")
         return
     description = book_description(title)
     result_label.config(text=description)
